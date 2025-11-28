@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Intercool Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Đăng nhập</h1>
+      <button id="loginGoogle">Login with Google</button>
+    </div>
+
+    <script src="firebase.js"></script>
+    <script>
+      const loginBtn = document.getElementById("loginGoogle");
+      loginBtn.onclick = async () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const result = await firebase.auth().signInWithPopup(provider);
+        location.href = "admin.html";
+      };
+    </script>
+  </body>
+</html>
